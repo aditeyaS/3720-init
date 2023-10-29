@@ -14,12 +14,8 @@ import {
 
 // dynamo table name
 const dynamoTableName = "demoapi";
+// dyname region
 const dynamoTableRegion = "us-east-1";
-
-// paths
-const userPath = "/user";
-const userParamPath = `${userPath}/{id}`;
-const usersPath = "/users";
 
 const dynamoDBClient = new DynamoDBClient({ region: dynamoTableRegion });
 const dynamo = DynamoDBDocumentClient.from(dynamoDBClient);
@@ -37,6 +33,11 @@ const STATUS_CODE = {
   SUCCESS: 200,
   NOT_FOUND: 404,
 };
+
+// paths
+const userPath = "/user";
+const userParamPath = `${userPath}/{id}`;
+const usersPath = "/users";
 
 export const handler = async (event, context) => {
   let response;
